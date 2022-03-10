@@ -1,0 +1,8 @@
+<h1> FEED </h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= post.user %></li>
+    <li><%= post.description %></li>
+  <% end %>
+</ul>
