@@ -1,8 +1,19 @@
+<%# http://localhost:3000/posts %>
+
 <h1> FEED </h1>
+
+<%= link_to "New post", new_post_path %>
+
+<br>
+<br>
+<br>
 
 <ul>
   <% @posts.each do |post| %>
-    <li><%= post.user %></li>
     <li><%= post.description %></li>
+    <%= link_to "Delete",
+            post,
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
   <% end %>
 </ul>

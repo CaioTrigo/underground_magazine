@@ -1,0 +1,7 @@
+<%#= http://localhost:3000/posts/new %>
+<%# new_post_path %>
+
+<%= simple_form_for @post do |f| %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
