@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 2022_03_10_143411) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "tips", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.float "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tips_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -49,15 +57,13 @@ ActiveRecord::Schema.define(version: 2022_03_10_143411) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "nickname"
     t.string "full_name"
-    t.integer "role"
+    t.integer "role", default: 1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-<<<<<<< HEAD
-=======
 
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
->>>>>>> b488f9a262fcd4bb7eeacc202abd5ed1dc43094a
+  add_foreign_key "tips", "users"
 end
