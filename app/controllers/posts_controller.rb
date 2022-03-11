@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path
     else
-      "Error"
+      render "new"
     end
   end
 
