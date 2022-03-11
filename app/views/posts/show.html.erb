@@ -1,0 +1,11 @@
+<%#= http://localhost:3000/posts/# %>
+
+<h1> Post único </h1>
+
+<h2><%= @post.user.nickname %></h2>
+<p><%= @post.description %></p>
+<%= link_to "Edit", edit_post_path(@post) %>
+<%= link_to "Delete",
+            @post,
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
