@@ -9,4 +9,11 @@ Rails.application.routes.draw do
   resources :posts
 
   get "profile/:id", to: "pages#profile"
+
+  resources :users, only: [:index] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
 end
