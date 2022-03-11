@@ -1,4 +1,5 @@
 <%# http://localhost:3000/posts %>
+<%#= posts_path %>
 
 <h1> FEED </h1>
 
@@ -15,5 +16,7 @@
             post,
             method: :delete,
             data: { confirm: "Are you sure?" } %>
+    <%= link_to "Edit", edit_post_path(post) %>
+    <%= link_to 'Show', post %>
   <% end %>
 </ul>
