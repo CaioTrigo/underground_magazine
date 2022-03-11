@@ -1,0 +1,11 @@
+<%#= http://localhost:3000/posts/#/edit %>
+<%#= edit_post_path %>
+
+<h1> EDIT </h1>
+
+<%= render "form", post: @post %>
+<%= link_to "Delete",
+            @post,
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+<%= link_to "Cancel", posts_path %>
