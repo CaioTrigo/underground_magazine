@@ -33,6 +33,9 @@ gem 'devise'
 # Request HTTP JS on Rails
 gem 'requestjs-rails'
 
+# Cloudinary
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
