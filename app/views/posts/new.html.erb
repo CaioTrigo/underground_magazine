@@ -1,8 +1,12 @@
 <%#= http://localhost:3000/posts/new %>
 <%# new_post_path %>
 
-<%= simple_form_for @post do |f| %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
-<%= link_to "Cancel", posts_path %>
+<div class="card my-5">
+  <div class="card-body">
+    <h1>New Post</h1>
+
+    <%= render 'form', post: @post %>
+
+    <%= link_to 'Back', posts_path, class: 'btn btn-light mt-2' %>
+  </div>
+</div>

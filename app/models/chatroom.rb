@@ -1,10 +1,5 @@
 class Chatroom < ApplicationRecord
-  has_many :messages
-end
-
-class ChatroomChannel < ApplicationCable::Channel
-  def subscribed
-    chatroom = Chatroom.find(params[:id])
-    stream_for chatroom
-  end
+  has_many :messages, dependent: :destroy
+  belongs_to :first_user, class_name: "User"
+  belongs_to :second_user, class_name: "User"
 end

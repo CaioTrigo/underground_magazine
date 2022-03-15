@@ -6,10 +6,13 @@ class PostsController < ApplicationController
   # Feed, mostra todos os posts de todos os artistas
   def index
     @posts = Post.all
+    # @comment = @post.comments.build
   end
 
   # Perfil, chama os posts de um artista só
   def show
+    @comment = @post.comments.build
+    @reply = Reply.new
   end
 
   # Novo post

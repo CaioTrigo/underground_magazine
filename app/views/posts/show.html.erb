@@ -2,10 +2,36 @@
 
 <h1> Post único </h1>
 
-<h2><%= @post.user.nickname %></h2>
-<p><%= @post.description %></p>
-<%= link_to "Edit", edit_post_path(@post) %>
-<%= link_to "Delete",
-            @post,
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+<div class="card my-5">
+  <div class="card-body">
+    <p id="notice"><%= notice %></p>
+    <div class="card-body">
+      <h4><%= @post.user.nickname %></h4>
+      <hr>
+      <p><%= @post.description %></p>
+    </div>
+    <div class="card-body">
+      <%= link_to "Edit", edit_post_path(@post) %>
+      <%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to 'Back', posts_path %>
+      <hr>
+    </div>
+    <div class="card-body">
+      <p class="font-weight-bold">Comments</p>
+      <%= render @post.comments %>
+    </div>
+  </div>
+  <div class="card my-1">
+    <div class="card-body">
+      <%= form_with(model: [@post, @post.comments.build]) do |f| %>
+        <div class="form-group">
+          <%= f.label 'New comment' %>
+          <%= f.text_area :text, class: 'form-control' %>
+        </div>
+        <%= f.hidden_field :reply_comment, value: params[:comment_id] %>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to 'reply', "#", remote: true, class: 'd-block' %>
+</div>
