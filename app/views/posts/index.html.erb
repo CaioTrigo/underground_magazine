@@ -14,7 +14,10 @@
 <% @posts.each do |post| %>
 <div class="card">
   <div class="card-body">
-  <li><%= post.description %></li>
+    <h4><%= post.user.nickname %></h4>
+    <%= post.description %></li>
+  </div>
+  <div class="card-body">
     <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" }, class: "card-link" %>
     <%= link_to "Edit", edit_post_path(post), class: "card-link" %>
     <%= link_to "Show", post, class: "card-link" %>

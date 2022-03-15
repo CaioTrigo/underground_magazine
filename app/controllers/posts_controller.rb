@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # Perfil, chama os posts de um artista só
   def show
     @comment = @post.comments.build
+    @reply = Reply.new
   end
 
   # Novo post
