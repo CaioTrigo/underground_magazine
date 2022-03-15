@@ -1,0 +1,20 @@
+<% unless !comment.persisted? %>
+  <div class="card" data-controller="reply" id="comment-<%= comment.id %>" data-reply-comment-id-value="<%= comment.id %>">
+    <div class="card-body">
+      <div class="comment-card">
+        <%= comment.user.nickname %>
+        <%= comment.text %>
+      </div>
+      <div data-reply-target="replies" class="card-body mx-3">
+        <% comment.replies.each do |reply| %>
+          <h5><%= reply.user.nickname %></h5><p><%= reply.text %></p>
+        <% end %>
+      </div>
+      <%= link_to 'Reply', "#", remote: true, class: 'd-block', data: { reply_target: "btn", action: "click->reply#openForm" } %>
+      <div data-reply-target="form" class="d-none">
+        <%= text_area_tag :text, nil, data: { reply_target: "text" } %>
+        <%= button_tag "Reply", class: "btn", data: { action: "click->reply#createReply" } %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :posts, dependent: :destroy
+
+  validates :nickname, presence: true, uniqueness: true
+
   enum role: [:artist, :follower]
 
   has_many :follower_relationships, foreign_key: :following_id, class_name: 'Follow'
