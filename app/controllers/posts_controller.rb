@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
+  after_action :verify_policy_scoped, only: :show
+
   # Feed, mostra todos os posts de todos os artistas
   def index
     @posts = Post.all
