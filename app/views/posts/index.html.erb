@@ -1,22 +1,27 @@
 <%# http://localhost:3000/posts %>
 <%#= posts_path %>
 
+<p id="notice"><%= notice %></p>
+
 <h1> FEED </h1>
 
-<%= link_to "New post", new_post_path %>
+<%= link_to "New post", new_post_path, class: "btn btn-primary" %>
 
 <br>
 <br>
 <br>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= post.description %></li>
-    <%= link_to "Delete",
-            post,
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-    <%= link_to "Edit", edit_post_path(post) %>
-    <%= link_to 'Show', post %>
-  <% end %>
-</ul>
+<% @posts.each do |post| %>
+<div class="card">
+  <div class="card-body">
+    <h4><%= post.user.nickname %></h4>
+    <%= post.description %></li>
+  </div>
+  <div class="card-body">
+    <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" }, class: "card-link" %>
+    <%= link_to "Edit", edit_post_path(post), class: "card-link" %>
+    <%= link_to "Show", post, class: "card-link" %>
+    <%= render "comments/form", comment: @comment%>
+  </div>
+</div>
+<% end %>
