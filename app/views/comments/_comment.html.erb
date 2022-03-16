@@ -2,8 +2,8 @@
   <div class="card" data-controller="reply" id="comment-<%= comment.id %>" data-reply-comment-id-value="<%= comment.id %>">
     <div class="card-body">
       <div class="comment-card">
-        <%= comment.user.nickname %>
-        <%= comment.text %>
+        <h5><%= comment.user.nickname %></h5>
+        <p><%= comment.text %></p>
       </div>
       <div data-reply-target="replies" class="card-body mx-3">
         <% comment.replies.each do |reply| %>
