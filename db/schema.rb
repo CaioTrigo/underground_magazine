@@ -10,25 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_03_15_151623) do
-=======
 ActiveRecord::Schema.define(version: 2022_03_15_184323) do
->>>>>>> 789ab9feb932c7805541b5a63d6c243f8c08c749
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-  create_table "chatroom_users", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "chatroom_id", null: false
-    t.datetime "last_read_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["chatroom_id"], name: "index_chatroom_users_on_chatroom_id"
-    t.index ["user_id"], name: "index_chatroom_users_on_user_id"
-=======
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -55,7 +41,16 @@ ActiveRecord::Schema.define(version: 2022_03_15_184323) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
->>>>>>> 789ab9feb932c7805541b5a63d6c243f8c08c749
+  end
+
+  create_table "chatroom_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "last_read_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_chatroom_users_on_chatroom_id"
+    t.index ["user_id"], name: "index_chatroom_users_on_user_id"
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -72,17 +67,12 @@ ActiveRecord::Schema.define(version: 2022_03_15_184323) do
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-=======
-    t.text "reply"
->>>>>>> 789ab9feb932c7805541b5a63d6c243f8c08c749
     t.bigint "post_id"
     t.bigint "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-<<<<<<< HEAD
   create_table "follows", force: :cascade do |t|
     t.integer "following_id", null: false
     t.integer "follower_id", null: false
@@ -93,8 +83,6 @@ ActiveRecord::Schema.define(version: 2022_03_15_184323) do
     t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
-=======
->>>>>>> 789ab9feb932c7805541b5a63d6c243f8c08c749
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
@@ -146,13 +134,10 @@ ActiveRecord::Schema.define(version: 2022_03_15_184323) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
-  add_foreign_key "chatroom_users", "chatrooms"
-  add_foreign_key "chatroom_users", "users"
-=======
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
->>>>>>> 789ab9feb932c7805541b5a63d6c243f8c08c749
+  add_foreign_key "chatroom_users", "chatrooms"
+  add_foreign_key "chatroom_users", "users"
   add_foreign_key "chatrooms", "users", column: "first_user_id"
   add_foreign_key "chatrooms", "users", column: "second_user_id"
   add_foreign_key "comments", "posts"
