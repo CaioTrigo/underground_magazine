@@ -1,0 +1,4 @@
+  <%= current_user.nickname %>
+  <% @followers.each do |follows| %>
+    <%= follows.nickname %>
+  <% end %>

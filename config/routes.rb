@@ -9,11 +9,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: [:show, :index] do
     resources :messages, only: :create
   end
 
   get "profile/:id", to: "pages#profile"
+
+  get "users/:id/following", to: "users#following", as: :users_following
+  get "users/:id/followers", to: "users#followers", as: :users_followers
+
 
   resources :users, only: [:index] do
     member do
