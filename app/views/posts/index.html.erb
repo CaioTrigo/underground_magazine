@@ -15,9 +15,11 @@
     <%= post.description %></li>
   </div>
   <div class="card-body">
-    <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" }, class: "card-link" %>
-    <%= link_to "Edit", edit_post_path(post), class: "card-link" %>
-    <%= link_to "Show", post, class: "card-link" %>
+    <%= link_to "View Art", post_path(post), class: "card-link btn btn-secondary" %>
+    <% if post.user_id == current_user.id %>
+      <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" }, class: "card-link btn btn-danger" %>
+      <%= link_to "Edit", edit_post_path(post), class: "card-link btn btn-warning" %>
+    <% end %>
     <%= render "comments/form", comment: @comment%>
   </div>
 </div>
