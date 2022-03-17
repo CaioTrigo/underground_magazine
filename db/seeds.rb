@@ -12,8 +12,7 @@ require "yaml"
 
 case Rails.env
     when 'development'
-      PHOTOS = ["https://picsum.photos/seed/picsum/200/300", "https://picsum.photos/200/300?grayscale", "https://picsum.photos/200/300/?blur"]
-      USERS_ID = (1..5).to_a
+      PHOTOS = ["https://picsum.photos/seed/picsum/200/300", "https://picsum.photos/200/300?grayscale"]
 
       Post.destroy_all
       puts "♻️ Destroyed all Posts"
