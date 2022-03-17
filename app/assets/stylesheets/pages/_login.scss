@@ -1,0 +1,29 @@
+.login {
+    height: 100vh;
+}
+
+.login-box {
+    background-color: $light-gray;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 25px;
+    padding: 40px;
+}
+
+#app-name {
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: Nunito;
+}
+
+.brand-icons {
+    // padding-left: 45%;
+    font-size: 2rem;
+    justify-content: space-evenly;
+}
+
+.recover-links > a {
+    text-decoration: none;
+    color: white;
+}
