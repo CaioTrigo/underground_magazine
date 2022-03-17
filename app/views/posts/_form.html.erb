@@ -1,8 +1,38 @@
-<%= simple_form_for @post do |f| %>
-  <div class="form-group">
-    <%= f.input :photo, as: :file %>
-    <%= f.label :description %>
-    <%= f.text_field :description, class: 'form-control' %>
-    <%= f.submit "Save", class: 'btn btn-primary' %>
-  </div>
-<% end %>
+<div class="container">
+  <%= simple_form_for @post do |f| %>
+    <div class="form-group">
+      <%= f.label "Upload your Art:" %>
+      <div class="container">
+        <img id="your_preview_id" class="mt-2 mb-2 img-fit"></img>
+      </div>
+      <%= f.input :photo, label: false, as: :file, class: "mb-4"%>
+      <%= f.label :description, class:"mt-4"%>
+      <%= f.text_area :description, class: 'form-control input-opaque mb-4', rows: 5  %>
+      <div class="d-flex flex-column button-box">
+        <%= f.submit "Save", class: 'btn btn-primary' %>
+        <%= link_to 'Back', posts_path, class: 'btn btn-secondary mt-2' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  function showImage(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#your_preview_id')
+          .attr('src', e.target.result)
+          .width('70vw')
+          .height('40vh');
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  document.getElementById('post_photo').addEventListener('change', function() {
+    showImage(this);
+  })
+</script>
