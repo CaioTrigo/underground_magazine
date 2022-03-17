@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 require "yaml"
-require 'faker'
 # Insumo.destroy_all if Rails.env.development?
 # Adubo.destroy_all if Rails.env.development?
 
