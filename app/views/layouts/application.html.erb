@@ -10,14 +10,13 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
       <%= ".msg-#{current_user&.id}" %> {
       padding: 10px;
       text-align: right;
       }
     </style>
-
   </head>
 
   <body>
