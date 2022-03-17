@@ -16,9 +16,13 @@ case Rails.env
 
       Post.destroy_all
       puts "♻️ Destroyed all Posts"
+      Chatroom.destroy_all
+      puts "♻️ Destroyed all Chatrooms"
+      Reply.destroy_all
+      puts "♻️ Destroyed all Replys"
       User.destroy_all
       puts "♻️ Destroyed all Users"
-      
+
       puts 'Creating users...'
       admin = User.new(
                 nickname: "Admin",
@@ -27,7 +31,7 @@ case Rails.env
                 password: "password"
             )
       admin.save!
-    
+
       gabriel = User.new(
         nickname: "gbs0",
         full_name: "Gabriel Schiavo",
@@ -35,7 +39,7 @@ case Rails.env
         password: "password"
       )
       gabriel.save!
-      
+
       bernarndo = User.new(
         nickname: "bernardo10",
         full_name: "Bernarndo Garbin",
@@ -77,7 +81,7 @@ case Rails.env
     # test-specific seeds ...
     # (Consider having your tests set up the data they need
     # themselves instead of seeding it here!)
-    
+
     when 'production'
-    
+
 end
