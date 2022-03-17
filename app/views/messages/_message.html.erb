@@ -1,15 +1,4 @@
-<div id="message-<%= message.id %>">
-  <div class="container">
-    <% if message.user_id == current_user.id %>
-      <div class="message_sent">
-        <p class="user"><%= message.user.nickname %></p>
-        <p><%= message.content %></p>
-      </div>
-    <% else %>
-      <div class="message_received">
-      <p class="user"><%= message.user.nickname %></p>
-        <p><%= message.content %></p>
-      </div>
-    <% end %>
-  </div>
+<div id="message-<%= message.id %>" class="container msg-<%= message.user.id %>">
+  <p class="user"><%= message.user.nickname %></p>
+  <p><%= message.content %></p>
 </div>

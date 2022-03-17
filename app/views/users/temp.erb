@@ -1,0 +1,16 @@
+<script>
+  const changeFollowButton = (id) => {
+    let btnState = document.querySelector(`.follow-btn-${id}`);
+    // let followButton = document.querySelector('.follow-btn-' + id);
+
+    if (btnState.innerText == "Follow") {
+      btnState.innerText = "Unfollow";
+      btnState.classList.remove("btn-warning");
+      btnState.classList.add("btn-danger");
+    } else {
+      btnState.innerText = "Follow";
+      btnState.classList.remove("btn-danger");
+      btnState.classList.add("btn-warning");
+    }
+  }
+</script>
