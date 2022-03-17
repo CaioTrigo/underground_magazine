@@ -1,8 +1,25 @@
 <li data-user=<%= user.id %>>
-  <%= user.email %>
+  <%= user.nickname %>
   <% if current_user.is_following?(user.id) %>
-    <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true %>
+    <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true, class: "btn btn-danger follow-btn-#{user.id}", style: "color: white;", onclick: "changeFollowButton(#{user.id})"  %>
   <% else %>
-    <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true %>
+    <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true, class: "btn btn-warning follow-btn-#{user.id}", onclick: "changeFollowButton(#{user.id})" %>
   <% end %>
 </li>
+
+<script>
+  const changeFollowButton = (id) => {
+    let btnState = document.querySelector(`.follow-btn-${id}`).innerText;
+    let followButton = document.querySelector('.follow-btn-' + id);
+
+    if (btnState == "Follow") {
+      followButton.innerText = "Unfollow";
+      followButton.classList.remove("btn-warning");
+      followButton.classList.add("btn-danger");
+    } else {
+      followButton.innerText = "Follow";
+      followButton.classList.remove("btn-danger");
+      followButton.classList.add("btn-warning");
+    }
+  }
+</script>

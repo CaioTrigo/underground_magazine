@@ -12,6 +12,12 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import { changeFollowButton } from "../components/follow-component"
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener("turbolinks:load", () => {
+    // changeFollowButton();
+})

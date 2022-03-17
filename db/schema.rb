@@ -83,6 +83,9 @@ ActiveRecord::Schema.define(version: 2022_03_15_184323) do
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8b76d5016fbeab5af8350a0bb1a605fe1e57c253
   create_table "follows", force: :cascade do |t|
     t.integer "following_id", null: false
     t.integer "follower_id", null: false
@@ -93,8 +96,11 @@ ActiveRecord::Schema.define(version: 2022_03_15_184323) do
     t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
+<<<<<<< HEAD
 =======
 >>>>>>> 789ab9feb932c7805541b5a63d6c243f8c08c749
+=======
+>>>>>>> 8b76d5016fbeab5af8350a0bb1a605fe1e57c253
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
