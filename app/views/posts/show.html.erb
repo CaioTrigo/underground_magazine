@@ -4,7 +4,6 @@
 
 <div class="card my-5">
   <div class="card-body">
-    <p id="notice"><%= notice %></p>
     <div class="card-body">
       <h4><%= @post.user.nickname %></h4>
       <hr>
@@ -33,5 +32,4 @@
       <% end %>
     </div>
   </div>
-  <%= link_to 'reply', "#", remote: true, class: 'd-block' %>
 </div>
