@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :posts, shallow: true do
+    resources :likes, only: :create
     resources :comments, except: %i[index show] do
       resources :replies, except: %i[index new show]
     end

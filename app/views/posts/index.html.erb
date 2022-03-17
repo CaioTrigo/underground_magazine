@@ -10,7 +10,7 @@
 
 <% @posts.each do |post| %>
 <!-- post card -->
-  <div class="flex bg-white shadow-lg rounded-lg  card-post mb-5"><!--horizantil margin is just for display-->
+  <div class="flex bg-white shadow-lg rounded-lg  card-post mb-5" id="p-<%=post.id %>"><!--horizantil margin is just for display-->
     <div class="flex items-start px-4 py-6 w-100">
       <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
       <div>
@@ -26,15 +26,15 @@
             <div>
               <h2 class="text-lg font-semibold text-gray-900 -mt-1"><%= post.author %> </h2>
               <small class="text-sm text-gray-700">Published In: <%= post.created_at.strftime("%d/%M/%Y")%></small>
-              
+
             </div>
             <small class="text-gray-700" style="align-self: flex-start;">Joined: <%= post.user.created_at.strftime("%A, %d %b %Y")%> </small>
           </div>
-          
+
           <p class="mt-3 text-gray-700 text-sm">
             <%= post.description %>
           </p>
-          
+
           <div class="mt-4 flex items-left flex-column">
             <div>
               <%= link_to "View Art", post_path(post), class: "card-link btn btn-secondary" %>
@@ -52,7 +52,11 @@
 								d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
 								clip-rule="evenodd" />
 						</svg>
-                <span><%= (1..50).to_a.sample%></span>
+                <span class="me-3"> <%=post.likes.count %></span>
+                <% if  current_user.likes.where(post: post).count.zero? %>
+                  <%= button_to "like", post_likes_path(post), class: "btn", remote: true%>
+                <% end %>
+
             </div>
             <div class="flex mr-2 text-gray-700 text-sm mr-8 mb-2">
                 <svg fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-1" stroke="currentColor">
