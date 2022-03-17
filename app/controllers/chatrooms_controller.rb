@@ -13,7 +13,6 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.new(name: "Chat with #{recipient.nickname}")
     @chatroom.first_user_id = current_user.id
     @chatroom.second_user_id = recipient.id
-    binding.pry
     if @chatroom.save
       redirect_to chatroom_path(@chatroom.id)
     end

@@ -1,25 +1,20 @@
-<li data-user=<%= user.id %>>
-  <%= user.nickname %>
-  <% if current_user.is_following?(user.id) %>
-    <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true, class: "btn btn-danger follow-btn-#{user.id}", style: "color: white;", onclick: "changeFollowButton(#{user.id})"  %>
-  <% else %>
-    <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true, class: "btn btn-warning follow-btn-#{user.id}", onclick: "changeFollowButton(#{user.id})" %>
-  <% end %>
-</li>
+<div>
+  <p data-user=<%= user.id %>>
+    <%= user.nickname %>
+    <% if current_user.is_following?(user.id) %>
+      <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true, class: "btn btn-danger follow-btn-#{user.id}", style: "color: white;", data: { follow_button_target: "btn" }  %>
 
-<script>
-  const changeFollowButton = (id) => {
-    let btnState = document.querySelector(`.follow-btn-${id}`).innerText;
-    let followButton = document.querySelector('.follow-btn-' + id);
+      <span>
+        <% chatroom = Chatroom.find_by(first_user: [user, current_user], second_user: [user, current_user]) %>
+        <% if chatroom %>
+          <%= link_to "Chat", chatroom_path(chatroom), class: "btn btn-success" %>
+        <% else %>
+          <%= link_to "Chat", chatrooms_path(recipient_id: user.id), method: :post, class: "btn btn-success" %>
+        <% end %>
+        </span>
 
-    if (btnState == "Follow") {
-      followButton.innerText = "Unfollow";
-      followButton.classList.remove("btn-warning");
-      followButton.classList.add("btn-danger");
-    } else {
-      followButton.innerText = "Follow";
-      followButton.classList.remove("btn-danger");
-      followButton.classList.add("btn-warning");
-    }
-  }
-</script>
+    <% else %>
+      <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true, class: "btn btn-warning follow-btn-#{user.id}", data: { follow_button_target: "btn" } %>
+    <% end %>
+  </p>
+</div>

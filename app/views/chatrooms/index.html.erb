@@ -1,5 +1,5 @@
 <% @chatrooms.each do |chatroom| %>
-  
+
   <h4><%= chatroom.name %></h4>
   <%= link_to "View Conversation", chatroom_path(chatroom.id), class: "btn btn-success"  %>
 <% end %>
