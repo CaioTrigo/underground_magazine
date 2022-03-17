@@ -1,12 +1,10 @@
 <%#= http://localhost:3000/posts/new %>
 <%# new_post_path %>
-
+<div class="form-full">
 <div class="card my-5">
   <div class="card-body">
     <h1>New Post</h1>
-
     <%= render 'form', post: @post %>
-
-    <%= link_to 'Back', posts_path, class: 'btn btn-light mt-2' %>
   </div>
+</div>
 </div>
