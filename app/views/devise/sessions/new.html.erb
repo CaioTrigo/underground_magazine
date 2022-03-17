@@ -18,7 +18,20 @@
 				<form>
          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="">
+
+          <%= f.input :full_name,
+                  required: false,
+                  autofocus: true,
+                  label: false,
+                  placeholder: "Fullname",
+                  input_html: { autocomplete: "full name",  class: "style-input" } %>
+
+          <%= f.input :nickname,
+                  required: false,
+                  autofocus: true,
+                  label: false,
+                  placeholder: "Nickname",
+                  input_html: { autocomplete: "nickname",  class: "style-input" } %>
 
           <%= f.input :email,
                   required: false,
@@ -30,10 +43,11 @@
           <%= f.input :password,
                   required: false,
                   label: false,
+                  autofocus: true,
                   placeholder: "Password",
                   input_html: { autocomplete: "current-password", class: "style-input" } %>
 
-          <%= f.button :submit, "Log in", class: "btn-login" %>
+          <%= f.button :submit, "Sign Up", class: "btn-login" %>
           <% end %>
 				</form>
 			</div>
@@ -41,16 +55,16 @@
 			<div class="login">
 				<form>
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-					<label for="chk" aria-hidden="true">Login</label>
+					<label for="chk" aria-hidden="true"> <%= link_to "Login", new_user_session_path %> </label>
 
-            <%= f.input :email,
+            <%#= f.input :email,
                   required: false,
                   autofocus: true,
                   label: false,
                   placeholder: "Email",
                   input_html: { autocomplete: "email",  class: "style-input" } %>
 
-					<%= f.input :password,
+					<%#= f.input :password,
                   required: false,
                   label: false,
                   placeholder: "Password",
@@ -59,15 +73,15 @@
           <button>Login</button>
           <% end %>
 
-          <div class="footer">
-            <div class="footer-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-          </div>
+          <#div class="footer">
+            <#div class="footer-links">
+            <#a href="#"><i class="fab fa-github"></i></a>
+            <#a href="#"><i class="fab fa-instagram"></i></a>
+            <#a href="#"><i class="fab fa-facebook"></i></a>
+            <#a href="#"><i class="fab fa-twitter"></i></a>
+            <#a href="#"><i class="fab fa-linkedin"></i></a>
+            <#/div>
+          <#/div>
 				</form>
 			</div>
     <%= render "devise/shared/links" %>

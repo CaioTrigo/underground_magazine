@@ -32,7 +32,7 @@ body{
 	height: 100%;
 }
 label{
-	color: #fff;
+	color: rgb(255, 255, 255);
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
@@ -59,7 +59,7 @@ label{
 input{
 	width: 60%;
 	height: 20px;
-	background: #e0dede;
+	background: #000000;
 	justify-content: center;
 	display: flex;
 	margin: 20px auto;
@@ -116,15 +116,17 @@ button:hover{
 
 .login{
 	height: 460px;
-	background: #eee;
+	background: rgb(0, 0, 0);
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
-.login label{
-	color: rgb(24, 19, 19);
-	transform: scale(.6);
-}
+
 
 .footer {
   background: #eee;
@@ -153,12 +155,6 @@ button:hover{
   color: #D23333;
 }
 
-#chk:checked ~ .login{
-	transform: translateY(-500px);
-}
 #chk:checked ~ .login label{
 	transform: scale(1);
-}
-#chk:checked ~ .signup label{
-	transform: scale(.6);
 }
