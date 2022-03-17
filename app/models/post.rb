@@ -11,6 +11,8 @@ class Post < ApplicationRecord
 
   after_create :set_author_name
 
+  scope :from_certain_user, -> (user_id) { where("user_id = ?", user_id) }
+
   private
   
   def set_author_name
