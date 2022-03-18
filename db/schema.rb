@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2022_03_17_162127) do
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "reply"
     t.bigint "post_id"
     t.bigint "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
@@ -72,6 +71,15 @@ ActiveRecord::Schema.define(version: 2022_03_17_162127) do
     t.index ["follower_id"], name: "index_follows_on_follower_id"
     t.index ["following_id", "follower_id"], name: "index_follows_on_following_id_and_follower_id", unique: true
     t.index ["following_id"], name: "index_follows_on_following_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -121,7 +129,7 @@ ActiveRecord::Schema.define(version: 2022_03_17_162127) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "nickname"
     t.string "full_name"
-    t.integer "role"
+    t.integer "role", default: 1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -132,6 +140,8 @@ ActiveRecord::Schema.define(version: 2022_03_17_162127) do
   add_foreign_key "chatrooms", "users", column: "second_user_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"

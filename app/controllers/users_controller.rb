@@ -49,6 +49,7 @@ class UsersController < ApplicationController
 
   def create_chatroom(followee)
     @chatroom = Chatroom.new(name: "Chat #{followee.nickname} and #{current_user.nickname}")
+    @chatroom.user_id = current_user.id
     @chatroom.first_user_id = current_user.id
     @chatroom.second_user_id = followee.id
     @chatroom.save

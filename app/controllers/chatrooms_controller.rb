@@ -11,6 +11,7 @@ class ChatroomsController < ApplicationController
     recipient_id = params[:recipient_id]
     recipient = User.find(recipient_id)
     @chatroom = Chatroom.new(name: "Chat with #{recipient.nickname}")
+    @chatroom.user_id = current_user.id
     @chatroom.first_user_id = current_user.id
     @chatroom.second_user_id = recipient.id
     if @chatroom.save

@@ -21,3 +21,6 @@ ActiveStorage.start()
 // document.addEventListener("turbolinks:load", () => {
 //     // changeFollowButton();
 // })
+
+//= require jquery
+//= require jquery_ujs
