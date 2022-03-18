@@ -24,12 +24,15 @@ case Rails.env
       puts "♻️ Destroyed all Users"
 
       puts 'Creating users...'
+      
+      admin_img = URI.open("https://i.pravatar.cc/300")
       admin = User.new(
                 nickname: "Admin",
                 full_name: "Administrator",
                 email: "test@test.com",
                 password: "password"
             )
+      admin.photo.attach(io: admin_img, filename: 'avatar_admin.jpg', content_type: 'image/jpg')
       admin.save!
 
       gabriel_img = URI.open("https://avatars.githubusercontent.com/u/33099210?v=4")
@@ -49,7 +52,7 @@ case Rails.env
         email: "bernarndo@undergroudmagazine.com",
         password: "password"
       )
-      bernarndo.photo.attach(io: bernardo_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg'
+      bernarndo.photo.attach(io: bernardo_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg')
       bernarndo.save!
 
       caio_img = URI.open("https://avatars.githubusercontent.com/u/83619590?v=4")
@@ -59,7 +62,7 @@ case Rails.env
         email: "caio@undergroudmagazine.com",
         password: "password"
       )
-      caio.photo.attach(io: caio_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg'
+      caio.photo.attach(io: caio_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg')
       caio.save!
       
       marcio_img = URI.open("https://avatars.githubusercontent.com/u/96788095?v=4")
@@ -69,7 +72,7 @@ case Rails.env
         email: "marcio@undergroudmagazine.com",
         password: "password"
       )
-      marcio.photo.attach(io: marcio_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg'
+      marcio.photo.attach(io: marcio_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg')
       marcio.save!
 
       puts "✅ Done Creating Users!"
