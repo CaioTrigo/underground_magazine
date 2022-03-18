@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy send_tip]
+  before_action :set_post, only: %i[show edit update destroy]
 
   # Feed, mostra todos os posts de todos os artistas
   def index
@@ -34,8 +34,19 @@ class PostsController < ApplicationController
   end
 
   def send_tip
+    id = params[:id]
     value = params[:value]
-    redirect_to post_path(@post)
+    
+    if params[:value].present?
+      flash[:notice] = "Thanks, tip $#{value} send to Artist!".html_safe
+      # respond_to do |format|
+    #   format.html { redirect_to post_path(value), notice: "Thanks, tip $#{value} send to Artist!" }
+    #   # format.json { render json: @picture }
+    # end
+    end
+    
+    
+    # redirect_to post_path(value)
   end
 
   def update

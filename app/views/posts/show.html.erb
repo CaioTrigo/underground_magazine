@@ -50,16 +50,20 @@
                 <i class="fa-solid fa-coins mr-2 text-lg text-blueGray-400"></i>Give this Artist a Tip:
               </div>
               <div class="mb-2 text-blueGray-600">
-                <ul>
-                  <li>
-                    <%= link_to tips_path(1), class:"btn btn-sm btn-primary px-3 ", remote: true do %>
+                <div class="d-inline">
+                    <%= link_to tips_path({id: @post.id, value: 1}), class:"btn btn-sm btn-primary px-3 ", remote: true do %>
                       <i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i>1,00
                     <% end %>
-                  </li>
-                  <!-- <button class="btn btn-sm"><li><i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i> 1,00</li></button> -->
-                  <button class="btn btn-sm"><li><i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i> 5,00</li></button>
-                  <button class="btn btn-sm"><li><i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i> 10,00</li></button>
-                </ul>
+
+                    <%= link_to tips_path({id: @post.id, value: 5}), class:"btn btn-sm btn-primary px-3 ", remote: true do %>
+                      <i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i>5,00
+                    <% end %>
+
+                    <%= link_to tips_path({id: @post.id, value: 10}), class:"btn btn-sm btn-primary px-3 ", remote: true do %>
+                      <i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i>10,00
+                    <% end %>
+                  
+                </div>
               </div>
             </div>
           </div>
