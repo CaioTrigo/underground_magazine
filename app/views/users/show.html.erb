@@ -1,15 +1,15 @@
 <div container="container user-profile-container" style="margin-top: 2.25rem;">
     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-    <div class="px-4 py-5 sm:px-6 flex  justify-content-start align-items-center flex-row">
-        <div class="mr-5 ml-5">
+    <div class="px-4 py-5 sm:px-6 flex  justify-content-between align-items-center flex-row">
+        <div class="mr-5 ml-5 d-flex flex-row">
             <%= cl_image_tag @user.photo.key, style: "height:150px; border-radius: 50%;" %>
-        </div>
-        <div>
-            <h3 class="text-lg leading-6 font-medium text-gray-900">Profile Information</h3>
-            <p class="mt-1 max-w-2xl text-sm text-gray-500">Your Personal details and account info.</p>
+            <div class="p-10">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Profile Information</h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">Your Personal details and account info.</p>
+            </div>
         </div>
         <% if current_user.id == @user.id%>
-            <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-md py-3 btn-secondary', style:"position: relative; left:40vw;"  %>
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-md py-3 btn-secondary'  %>
         <% end %>
     </div>
     <div class="border-t border-gray-200">
