@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def show
     @comment = @post.comments.build
     @reply = Reply.new
+    @post_count = Post.from_certain_user(@post.user.id).count
   end
 
   # Novo post
