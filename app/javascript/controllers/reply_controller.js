@@ -30,7 +30,7 @@ export default class extends Controller {
   }
 
   insertReply(data) {
-    this.repliesTarget.insertAdjacentHTML("beforeEnd", `<h5>${data.nickname}</h5><p>${data.reply.text}</p>`)
+    this.repliesTarget.insertAdjacentHTML("beforeEnd", `<h5><strong>${data.nickname}</strong> reply:</h5><p>${data.reply.text}</p>`)
     this.textTarget.value = ""
     this.formTarget.classList.add("d-none")
   }

@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def show
     @comment = @post.comments.build
     @reply = Reply.new
+    @post_count = Post.from_certain_user(@post.user.id).count
   end
 
   # Novo post
@@ -30,6 +31,22 @@ class PostsController < ApplicationController
   end
 
   def edit
+  end
+
+  def send_tip
+    id = params[:id]
+    value = params[:value]
+    
+    if params[:value].present?
+      flash[:notice] = "Thanks, tip $#{value} send to Artist!".html_safe
+      # respond_to do |format|
+    #   format.html { redirect_to post_path(value), notice: "Thanks, tip $#{value} send to Artist!" }
+    #   # format.json { render json: @picture }
+    # end
+    end
+    
+    
+    # redirect_to post_path(value)
   end
 
   def update

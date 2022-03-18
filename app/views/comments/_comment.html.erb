@@ -2,18 +2,18 @@
   <div class="card" data-controller="reply" id="comment-<%= comment.id %>" data-reply-comment-id-value="<%= comment.id %>">
     <div class="card-body">
       <div class="comment-card">
-        <h5><%= comment.user.nickname %></h5>
+        <h5><strong><%= comment.user.nickname %></strong> commented:</h5>
         <p><%= comment.text %></p>
       </div>
       <div data-reply-target="replies" class="card-body mx-3">
         <% comment.replies.each do |reply| %>
-          <h5><%= reply.user.nickname %></h5><p><%= reply.text %></p>
+          <h5><strong><%= reply.user.nickname %></strong> reply:</h5><p><%= reply.text %></p>
         <% end %>
       </div>
       <%= link_to 'Reply', "#", remote: true, class: 'd-block', data: { reply_target: "btn", action: "click->reply#openForm" } %>
       <div data-reply-target="form" class="d-none">
-        <%= text_area_tag :text, nil, data: { reply_target: "text" } %>
-        <%= button_tag "Reply", class: "btn", data: { action: "click->reply#createReply" } %>
+        <%= text_area_tag :text, nil, data: { reply_target: "text" }, class: "input-opaque d-block w-100" %>
+        <%= button_tag "Reply", class: "btn btn-secondary mt-2", data: { action: "click->reply#createReply" } %>
       </div>
     </div>
   </div>
