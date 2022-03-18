@@ -10,8 +10,8 @@
 
 <% @posts.each do |post| %>
 <!-- post card -->
-  <div class="flex bg-white shadow-lg rounded-lg  card-post mb-5" id="p-<%=post.id %>"><!--horizantil margin is just for display-->
-    <div class="flex items-start px-4 py-6 w-100">
+  <div class="flex bg-white shadow-lg rounded-lg  card-post mb-5" ><!--horizantil margin is just for display-->
+    <div class="flex items-start px-4 py-6 w-100 " id="post-<%=post.id %>">
       <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
       <div>
       <div class="pl-5 mt-3" style="margin-left: 3.25rem;">
