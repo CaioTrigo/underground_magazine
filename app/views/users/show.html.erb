@@ -1,15 +1,15 @@
 <div container="container user-profile-container" style="margin-top: 2.25rem;">
     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-    <div class="px-4 py-5 sm:px-6 flex  justify-content-start align-items-center flex-row">
-        <div class="mr-5 ml-5">
+    <div class="px-4 py-5 sm:px-6 flex  justify-content-between align-items-center flex-row">
+        <div class="mr-5 ml-5 d-flex flex-row">
             <%= cl_image_tag @user.photo.key, style: "height:150px; border-radius: 50%;" %>
-        </div>
-        <div>
-            <h3 class="text-lg leading-6 font-medium text-gray-900">Profile Information</h3>
-            <p class="mt-1 max-w-2xl text-sm text-gray-500">Your Personal details and account info.</p>
+            <div class="p-10">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Profile Information</h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">Your Personal details and account info.</p>
+            </div>
         </div>
         <% if current_user.id == @user.id%>
-            <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-md py-3 btn-secondary', style:"position: relative; left:40vw;"  %>
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-md py-3 btn-secondary'  %>
         <% end %>
     </div>
     <div class="border-t border-gray-200">
@@ -18,22 +18,22 @@
             <dt class="text-sm font-medium text-gray-500">Full name:</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @user.full_name %></dd>
         </div>
-        <div class="border-t border-gray-200"/>
+        <div class="border-t border-gray-200">
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Nickname:</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @user.nickname %></dd>
         </div>
-        <div class="border-t border-gray-200"/>
+        <div class="border-t border-gray-200">
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Email address</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @user.email %></dd>
         </div>
-        <div class="border-t border-gray-200"/>
+        <div class="border-t border-gray-200">
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">About</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Independent Artist and Digital Nomad. Travelling wordwide to seek new experiences and new landscapes for photos and drawing inspirations. Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.</dd>
         </div>
-        <div class="border-t border-gray-200"/>
+        <div class="border-t border-gray-200">
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Your Artworks:</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">

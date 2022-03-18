@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "users/:id/following", to: "users#following", as: :users_following
   get "users/:id/followers", to: "users#followers", as: :users_followers
 
+  get "send_tip/:value", to: "posts#send_tip", as: :tips
 
   resources :users, only: [:index, :edit, :show] do
     member do
