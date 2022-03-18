@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :chatrooms, only: [:show, :index] do
+  resources :chatrooms, only: [:show, :index, :create] do
     resources :messages, only: :create
   end
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get "users/:id/followers", to: "users#followers", as: :users_followers
 
 
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :edit, :show] do
     member do
       post :follow
       post :unfollow
