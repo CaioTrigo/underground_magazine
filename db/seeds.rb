@@ -11,77 +11,78 @@ require "yaml"
 # Adubo.destroy_all if Rails.env.development?
 
 case Rails.env
-    when 'development'
-      PHOTOS = ["https://picsum.photos/seed/picsum/200/300", "https://picsum.photos/200/300?grayscale"]
 
-      Post.destroy_all
-      puts "♻️ Destroyed all Posts"
-      Chatroom.destroy_all
-      puts "♻️ Destroyed all Chatrooms"
-      Reply.destroy_all
-      puts "♻️ Destroyed all Replys"
-      User.destroy_all
-      puts "♻️ Destroyed all Users"
+when 'development'
+  PHOTOS = ["https://picsum.photos/seed/picsum/200/300", "https://picsum.photos/200/300?grayscale"]
 
-      puts 'Creating users...'
-      admin = User.new(
-                nickname: "Admin",
-                full_name: "Administrator",
-                email: "test@test.com",
-                password: "password"
-            )
-      admin.save!
+  Post.destroy_all
+  puts "♻️ Destroyed all Posts"
+  Chatroom.destroy_all
+  puts "♻️ Destroyed all Chatrooms"
+  Reply.destroy_all
+  puts "♻️ Destroyed all Replys"
+  User.destroy_all
+  puts "♻️ Destroyed all Users"
 
-      gabriel = User.new(
-        nickname: "gbs0",
-        full_name: "Gabriel Schiavo",
-        email: "gabriel@undergroudmagazine.com",
-        password: "password"
-      )
-      gabriel.save!
+  puts 'Creating users...'
+  admin = User.new(
+    nickname: "Admin",
+    full_name: "Administrator",
+    email: "test@test.com",
+    password: "password"
+  )
+  admin.save!
 
-      bernarndo = User.new(
-        nickname: "bernardo10",
-        full_name: "Bernarndo Garbin",
-        email: "bernarndo@undergroudmagazine.com",
-        password: "password"
-      )
-      bernarndo.save!
+  gabriel = User.new(
+    nickname: "gbs0",
+    full_name: "Gabriel Schiavo",
+    email: "gabriel@undergroudmagazine.com",
+    password: "password"
+  )
+  gabriel.save!
 
-      caio = User.new(
-        nickname: "caio10",
-        full_name: "Caio Trigo",
-        email: "caio@undergroudmagazine.com",
-        password: "password"
-      )
-      caio.save!
+  bernarndo = User.new(
+    nickname: "bernardo10",
+    full_name: "Bernarndo Garbin",
+    email: "bernarndo@undergroudmagazine.com",
+    password: "password"
+  )
+  bernarndo.save!
 
-      marcio = User.new(
-        nickname: "marcio10",
-        full_name: "Marcio Ferreira",
-        email: "marcio@undergroudmagazine.com",
-        password: "password"
-      )
-      marcio.save!
+  caio = User.new(
+    nickname: "caio10",
+    full_name: "Caio Trigo",
+    email: "caio@undergroudmagazine.com",
+    password: "password"
+  )
+  caio.save!
 
-      puts "✅ Done Creating Users!"
+  marcio = User.new(
+    nickname: "marcio10",
+    full_name: "Marcio Ferreira",
+    email: "marcio@undergroudmagazine.com",
+    password: "password"
+  )
+  marcio.save!
 
-      puts 'Creating Posts...'
+  puts "✅ Done Creating Users!"
 
-      # Creating 20 random Art Posts
-      20.times do
-        file = URI.open(PHOTOS.sample)
-        post = Post.new(user_id: User.all.sample.id, description: "A random unilimited art description")
-        post.photo.attach(io: file, filename: 'art_from_user#{self.user_id}.jpg', content_type: 'image/jpg')
-        post.save!
-      end
-      puts "✅ Done Creating Posts!"
+  puts 'Creating Posts...'
 
-    when 'test'
-    # test-specific seeds ...
-    # (Consider having your tests set up the data they need
-    # themselves instead of seeding it here!)
+  # Creating 20 random Art Posts
+  20.times do
+    file = URI.open(PHOTOS.sample)
+    post = Post.new(user_id: User.all.sample.id, description: "A random unilimited art description")
+    post.photo.attach(io: file, filename: "art_from_user#{self.user_id}.jpg", content_type: "image/jpg")
+    post.save!
+  end
+  puts "✅ Done Creating Posts!"
 
-    when 'production'
+when 'test'
+# test-specific seeds ...
+# (Consider having your tests set up the data they need
+# themselves instead of seeding it here!)
+
+when 'production'
 
 end

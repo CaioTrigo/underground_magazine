@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   after_create :set_author_name
 
   private
-  
+
   def set_author_name
     user = User.find(self.user_id)
     update_attribute(:author, user.full_name)
