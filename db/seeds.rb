@@ -24,38 +24,45 @@ when 'development'
   User.destroy_all
   puts "♻️ Destroyed all Users"
 
-  puts 'Creating users...'
-  admin = User.new(
-    nickname: "Admin",
-    full_name: "Administrator",
-    email: "test@test.com",
-    password: "password"
-  )
-  admin.save!
+      gabriel_img = URI.open("https://avatars.githubusercontent.com/u/33099210?v=4")
+      gabriel = User.new(
+        nickname: "gbs0",
+        full_name: "Gabriel Schiavo",
+        email: "gabriel@undergroudmagazine.com",
+        password: "password"
+      )
+      gabriel.photo.attach(io: gabriel_img, filename: 'avatar_gabriel.jpg', content_type: 'image/jpg')
+      gabriel.save!
 
-  gabriel = User.new(
-    nickname: "gbs0",
-    full_name: "Gabriel Schiavo",
-    email: "gabriel@undergroudmagazine.com",
-    password: "password"
-  )
-  gabriel.save!
+      bernardo_img = URI.open("https://avatars.githubusercontent.com/u/97058256?v=4")
+      bernarndo = User.new(
+        nickname: "bernardo10",
+        full_name: "Bernarndo Garbin",
+        email: "bernarndo@undergroudmagazine.com",
+        password: "password"
+      )
+      bernarndo.photo.attach(io: bernardo_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg')
+      bernarndo.save!
 
-  bernarndo = User.new(
-    nickname: "bernardo10",
-    full_name: "Bernarndo Garbin",
-    email: "bernarndo@undergroudmagazine.com",
-    password: "password"
-  )
-  bernarndo.save!
+      caio_img = URI.open("https://avatars.githubusercontent.com/u/83619590?v=4")
+      caio = User.new(
+        nickname: "caio10",
+        full_name: "Caio Trigo",
+        email: "caio@undergroudmagazine.com",
+        password: "password"
+      )
+      caio.photo.attach(io: caio_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg')
+      caio.save!
 
-  caio = User.new(
-    nickname: "caio10",
-    full_name: "Caio Trigo",
-    email: "caio@undergroudmagazine.com",
-    password: "password"
-  )
-  caio.save!
+      marcio_img = URI.open("https://avatars.githubusercontent.com/u/96788095?v=4")
+      marcio = User.new(
+        nickname: "marcio10",
+        full_name: "Marcio Ferreira",
+        email: "marcio@undergroudmagazine.com",
+        password: "password"
+      )
+      marcio.photo.attach(io: marcio_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg')
+      marcio.save!
 
   marcio = User.new(
     nickname: "marcio10",

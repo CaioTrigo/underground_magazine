@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:follow, :unfollow]
-
+  before_action :set_user, only: [:follow, :unfollow, :show]
+  
   def index
     @users = User.where.not(id: current_user.id)
+  end
+
+  def show
+    @user
+    @posts = Post.from_certain_user(@user.id)
   end
 
   def follow
@@ -33,6 +38,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_current_user
+    @current_user
+  end
 
   def set_user
     @user = User.find(params[:id])
