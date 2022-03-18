@@ -1,4 +1,3 @@
-require 'pry'
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = Chatroom.all
@@ -15,7 +14,6 @@ class ChatroomsController < ApplicationController
     @chatroom.user_id = current_user.id
     @chatroom.first_user_id = current_user.id
     @chatroom.second_user_id = recipient.id
-    binding.pry
     if @chatroom.save
       redirect_to chatroom_path(@chatroom.id)
     end
