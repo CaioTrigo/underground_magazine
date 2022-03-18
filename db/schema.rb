@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2022_03_17_162127) do
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "reply"
     t.bigint "post_id"
     t.bigint "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
@@ -121,7 +120,7 @@ ActiveRecord::Schema.define(version: 2022_03_17_162127) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "nickname"
     t.string "full_name"
-    t.integer "role"
+    t.integer "role", default: 1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
