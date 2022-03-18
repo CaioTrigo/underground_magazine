@@ -36,7 +36,7 @@
           <% end %>
           <li class="nav-item dropdown">
             <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: {bs_toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
+              <%= cl_image_tag current_user.photo.key, :width=>80, :height=>80, :gravity=>"face", "radius" => "50", :crop=>"thumb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: {bs_toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
             <% else %>
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
             <% end %>
