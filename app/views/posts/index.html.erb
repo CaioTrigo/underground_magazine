@@ -21,7 +21,7 @@
         <% end %>
           <div class="flex items-center justify-between w-100">
             <div>
-              <img class="w-12 h-12 rounded-full object-cover mr-4 shadow" src="https://i.pravatar.cc/300" alt="avatar">
+              <%= cl_image_tag post.user.photo.key, class:"w-12 h-12 rounded-full object-cover mr-4 shadow", crop: :fill %>
             </div>
             <div>
               <h2 class="text-lg font-semibold text-gray-900 -mt-1"><%= post.author %> </h2>
