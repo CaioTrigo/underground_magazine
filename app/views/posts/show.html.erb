@@ -51,7 +51,12 @@
               </div>
               <div class="mb-2 text-blueGray-600">
                 <ul>
-                  <button class="btn btn-sm"><li><i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i> 1,00</li></button>
+                  <li>
+                    <%= link_to tips_path(1), class:"btn btn-sm btn-primary px-3 ", remote: true do %>
+                      <i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i>1,00
+                    <% end %>
+                  </li>
+                  <!-- <button class="btn btn-sm"><li><i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i> 1,00</li></button> -->
                   <button class="btn btn-sm"><li><i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i> 5,00</li></button>
                   <button class="btn btn-sm"><li><i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i> 10,00</li></button>
                 </ul>

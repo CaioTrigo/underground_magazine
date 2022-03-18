@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: %i[show edit update destroy send_tip]
 
   # Feed, mostra todos os posts de todos os artistas
   def index
@@ -31,6 +31,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+  end
+
+  def send_tip
+    value = params[:value]
+    redirect_to post_path(@post)
   end
 
   def update
