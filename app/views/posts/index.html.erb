@@ -8,10 +8,9 @@
 
 <% @posts.each do |post| %>
 <!-- post card -->
-  <div class="flex bg-white shadow-lg rounded-lg  card-post mb-5"><!--horizantil margin is just for display-->
-    <div class="flex items-start px-4 py-6 w-100">
-      <div style="background-image: url('<%= cl_image_path post.photo.key %>'); height: 300px; width: 400px; background-size: contain; background-repeat: no-repeat;">
-      </div>
+  <div class="flex bg-white shadow-lg rounded-lg  card-post mb-5" ><!--horizantil margin is just for display-->
+    <div class="flex items-start px-4 py-6 w-100 " id="post-<%=post.id %>">
+      <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
       <div>
       <div class="pl-5 mt-3" style="margin-left: 3.25rem;">
         <% if post.user.id == current_user.id %>
@@ -26,9 +25,9 @@
                 <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
               <% end %>
             </div>
-            <div>
+            <div class="ml-5">
               <h2 class="text-lg font-semibold text-gray-900 -mt-1"><%= post.author %> </h2>
-              <small class="text-sm text-gray-700">Published at: <%= post.created_at.strftime('%H:%M')%></small>
+              <small class="text-sm text-gray-700">Published In: <%= post.created_at.strftime("%d/%M/%Y")%></small>
             </div>
             <small class="text-gray-700" style="align-self: flex-start;">Joined: <%= post.user.created_at.strftime("%A, %d %b %Y")%> </small>
           </div>
@@ -48,6 +47,7 @@
             <%= render "comments/form", comment: @comment%>
             <div class="mt-3">
             <div class="flex mr-2 text-gray-700 text-sm mr-3 mb-2">
+<<<<<<< HEAD
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1 text-pink-500" viewBox="0 0 20 20" fill="currentColor">
 							  <path fill-rule="evenodd"
 								  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
@@ -55,6 +55,28 @@
 						  </svg>
               <%# post.likes.count %>
                 <span><%= (1..50).to_a.sample%> Likes</span>
+=======
+            <% if  current_user.likes.where(post: post).count.zero? %>
+              <%=link_to post_likes_path(post), remote: true, method: :post do%>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1 text-pink-500" viewBox="0 0 20 20"
+                fill="lightgrey">
+                <path fill-rule="evenodd"
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                  clip-rule="evenodd" />
+              </svg>
+              <% end %>
+            <% else %>
+              <%= link_to like_path(post.id), method: :delete,  remote: true do%>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1 text-pink-500" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                  clip-rule="evenodd" />
+              </svg>
+              <% end %>
+            <% end %>
+                <span class="me-3"> <%=post.likes.count %></span>
+>>>>>>> 5f8f1ec0afff17fa9b810cbc81b2ef9d22329845
             </div>
             <div class="flex mr-2 text-gray-700 text-sm mr-8 mb-2">
                 <svg fill="none" viewBox="0 0 24 24" class="w-5 h-5 mr-1" stroke="currentColor">
