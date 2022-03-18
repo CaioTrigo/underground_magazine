@@ -19,7 +19,7 @@ when 'development'
   gabriel = User.new(
     nickname: "gbs0",
     full_name: "Gabriel Schiavo",
-    email: "gabriel@undergroudmagazine.com",
+    email: "gabriel@undergroundmagazine.com",
     password: "password"
   )
   gabriel.photo.attach(io: gabriel_img, filename: 'avatar_gabriel.jpg', content_type: 'image/jpg')
@@ -29,7 +29,7 @@ when 'development'
   bernarndo = User.new(
     nickname: "bernardo10",
     full_name: "Bernarndo Garbin",
-    email: "bernarndo@undergroudmagazine.com",
+    email: "bernarndo@undergroundmagazine.com",
     password: "password"
   )
   bernarndo.photo.attach(io: bernardo_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg')
@@ -39,7 +39,7 @@ when 'development'
   caio = User.new(
     nickname: "caio10",
     full_name: "Caio Trigo",
-    email: "caio@undergroudmagazine.com",
+    email: "caio@undergroundmagazine.com",
     password: "password"
   )
   caio.photo.attach(io: caio_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg')
@@ -49,7 +49,7 @@ when 'development'
   marcio = User.new(
     nickname: "marcio10",
     full_name: "Marcio Ferreira",
-    email: "marcio@undergroudmagazine.com",
+    email: "marcio@undergroundmagazine.com",
     password: "password"
   )
   marcio.photo.attach(io: marcio_img, filename: 'avatar_caio.jpg', content_type: 'image/jpg')
