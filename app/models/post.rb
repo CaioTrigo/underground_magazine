@@ -7,10 +7,14 @@ class Post < ApplicationRecord
 
   has_one_attached :photo
 
+  has_one_attached :avatar
+
   validates :description, presence: true
   validates :photo, presence: true
 
   after_create :set_author_name
+
+  scope :from_certain_user, -> (user_id) { where("user_id = ?", user_id) }
 
   private
 

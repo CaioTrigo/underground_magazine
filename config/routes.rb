@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "users/:id/followers", to: "users#followers", as: :users_followers
 
 
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :edit, :show] do
     member do
       post :follow
       post :unfollow

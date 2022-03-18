@@ -29,11 +29,16 @@
           <li class="nav-item">
             <%= link_to "Messages", chatrooms_path,  class: "nav-link" %>
           </li>
+          <% if current_user.present? %>
+          <li class="nav-item">
+            <%= link_to "My Profile", user_path(current_user.id),  class: "nav-link" %>
+          </li>
+          <% end %>
           <li class="nav-item dropdown">
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: {bs_toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
             <% else %>
-              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # Feed, mostra todos os posts de todos os artistas
   def index
-    @posts = Post.all
+    @posts = Post.all.order("updated_at DESC")
     # @comment = @post.comments.build
   end
 
