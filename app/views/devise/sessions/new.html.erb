@@ -1,5 +1,8 @@
+
 <div class="container login">
-  <h1 class="text-center mt-4" id="app-name">Underground Magazine!</h1>
+  <div class="home_logo">
+    <img src="<%= image_path('login_logo.png') %>" />
+  </div>
   <div class="login-box mt-5">
     <h2 class="mb-3">Login</h2>
 
@@ -23,25 +26,18 @@
 
       <div class="d-inline d-flex brand-icons mt-5 space-between">
         <div class="row text-center">
-        <i class="fa-brands fa-facebook-square"></i>
-          <label style="font-size: 15px;">Login w/ Facebook</label>
-        </div>
-        <div class="row text-center">
-          <i class="fa-brands fa-google"></i>
-          <label style="font-size: 15px;">Login w/ Google</label>
-        </div>
-        <div class="row text-center">
-          <i class="fa-brands fa-twitter"></i>
-          <label style="font-size: 15px;">Login w/ Twitter</label>
-        </div>
-        <div class="row text-center">
-          <i class="fa-brands fa-behance-square"></i>
-          <label style="font-size: 15px;">Login w/ Behance</label>
+            <div class="footer-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
       </div>
     <% end %>
 
-    
+
   </div>
   <div class="text-center mt-3 recover-links"><%= render "devise/shared/links" %></div>
 </div>
