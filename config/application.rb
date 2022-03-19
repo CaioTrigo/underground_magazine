@@ -41,3 +41,7 @@ module UndergroundMagazine
     config.generators.system_tests = nil
   end
 end
+
+class Application < Rails::Application
+  config.time_zone = 'Eastern Time (US & Canada)'
+end

@@ -8,7 +8,11 @@
   <div class="card-post-infos">
     <div class="d-flex flex-column justify-content-between">
       <div>
-        <h2><%= post.author %> </h2>
+        <% if post.author == current_user %>
+          <h2><%= link_to current_user.nickname, profile_path %></h2>
+        <% else %>
+          <h2><%= link_to post.author, user_path(post.user) %>
+        <% end %>
         <p class="p-published">Published at <%= post.created_at.strftime('%H:%M')%></p>
       </div>
       <div>
@@ -16,24 +20,17 @@
       </div>
     </div>
     <% if post.user.photo.attached? %>
-    <%= cl_image_tag post.user.photo.key, :width=>80, :height=>80, :gravity=>"face", "radius" => "50", :crop=>"thumb", class: "avatar dropdown-toggle card-post-user avatar-bordered", id: "navbarDropdown", data: {bs_toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
+      <%= cl_image_tag post.user.photo.key, :width=>80, :height=>80, :gravity=>"face", "radius" => "50", :crop=>"thumb", class: "avatar dropdown-toggle card-post-user avatar-bordered", id: "navbarDropdown", data: {bs_toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
     <% else %>
-    <img class="avatar dropdown-toggle card-post-user" id="navbarDropdown" data-bs-toggle="dropdown"
+      <img class="avatar dropdown-toggle card-post-user" id="navbarDropdown" data-bs-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false"
       src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
     <% end %>
     <p class="w-50 text-align-justify">
       <%= post.description %>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam mi sagittis venenatis aliquam. Quisque placerat ex ut efficitur molestie. Donec eget ornare lorem, ut rutrum urna. Praesent mattis enim sit amet est ultrices dapibus. Aliquam scelerisque dolor ac magna vestibulum molestie. Vestibulum non ex ex. Vivamus in justo erat. Morbi vitae enim eget elit tempus molestie. Sed accumsan hendrerit imperdiet. Curabitur risus tellus, mollis a porta eget, mollis sit amet ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
     </p>
 
     <div class="flex items-left flex-column">
-      <div>
-        <% if post.user_id == current_user.id %>
-        <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" }, class: "card-link btn btn-danger" %>
-        <%= link_to "Edit", edit_post_path(post), class: "card-link btn btn-warning" %>
-        <% end %>
-      </div>
       <%= render "comments/form", comment: @comment%>
       <div class="mt-3">
         <div class="flex mr-2 text-gray-700 text-sm mr-3 mb-2">
@@ -47,7 +44,7 @@
           </svg>
           <% end %>
           <% else %>
-          <%= link_to like_path(post.id), method: :delete,  remote: true do%>
+          <%= link_to like_path(post.id), method: :delete,  remote: true do %>
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1 text-pink-500" viewBox="0 0 20 20"
             fill="currentColor">
             <path fill-rule="evenodd"
@@ -77,6 +74,12 @@
           </svg>
           <span>Share</span>
         </div>
+      </div>
+      <div class="container-delete-edit">
+        <% if post.user_id == current_user.id %>
+        <%= link_to "Edit", edit_post_path(post), class: "btn-edit" %>
+          <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn-delete" %>
+        <% end %>
       </div>
       <%= link_to "View Art", post_path(post), class: "btn-view-post" %>
     </div>
