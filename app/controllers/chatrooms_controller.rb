@@ -1,21 +1,18 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = Chatroom.all
+    @chatrooms = Chatroom.where(["first_user_id = :first or second_user_id = :second", { first: current_user, second: current_user }])
   end
 
-  def new
-    @chatroom = Chatroom.new
-  end
+  def new; end
 
   def create
     recipient_id = params[:recipient_id]
     recipient = User.find(recipient_id)
     @chatroom = Chatroom.new(name: "Chat with #{recipient.nickname}")
-    @chatroom.user_id = current_user.id
-    @chatroom.first_user_id = current_user.id
-    @chatroom.second_user_id = recipient.id
+    @chatroom.first_user = current_user
+    @chatroom.second_user = recipient
     if @chatroom.save
-      redirect_to chatroom_path(@chatroom.id)
+      redirect_to chatroom_path(@chatroom)
     end
   end
 

@@ -34,7 +34,6 @@ gem 'devise'
 gem 'requestjs-rails'
 
 # Cloudinary
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 
 # Money format reader
