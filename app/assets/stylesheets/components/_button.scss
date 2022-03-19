@@ -1,0 +1,30 @@
+.btn-new-post {
+  background-color: $bg-brown;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 15px 80px;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: $bg-dark-brown;
+    color: #fff;
+    transition: 0.3s ease;
+  }
+}
+
+.btn-view-post {
+  background-color: #111827;
+  color: #fff;
+  padding: 10px 50px;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: $bg-brown;
+    color: #fff;
+    transition: 0.3s ease;
+  }
+}
