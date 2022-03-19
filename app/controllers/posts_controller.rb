@@ -38,6 +38,7 @@ class PostsController < ApplicationController
     value = params[:value]
     
     if params[:value].present?
+      redirect_to post_path(id)
       flash[:notice] = "Thanks, tip $#{value} send to Artist!".html_safe
       # respond_to do |format|
     #   format.html { redirect_to post_path(value), notice: "Thanks, tip $#{value} send to Artist!" }

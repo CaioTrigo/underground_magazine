@@ -1,6 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: transparent;
+  background: $bg-brown-figma;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {

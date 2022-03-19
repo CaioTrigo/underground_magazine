@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
-  get "profile/:id", to: "pages#profile"
+  get "profile", to: "pages#profile", as: :profile
 
   get "users/:id/following", to: "users#following", as: :users_following
   get "users/:id/followers", to: "users#followers", as: :users_followers

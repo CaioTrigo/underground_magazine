@@ -13,8 +13,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       <%= ".msg-#{current_user&.id}" %> {
-      padding: 10px;
-      text-align: right;
+        background-color: lightgray;
+        text-align: right;
+      }
+      <%= ".msg-container-#{current_user&.id}" %> {
+        justify-content: flex-end
       }
       button:not(:disabled), [type="submit"]:not(:disabled) {
       cursor: pointer;

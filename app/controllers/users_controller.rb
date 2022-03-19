@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:follow, :unfollow, :show]
-  
+
   def index
     @users = User.where.not(id: current_user.id)
   end
 
   def show
-    @user
     @posts = Post.from_certain_user(@user.id)
   end
 
@@ -47,11 +46,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def create_chatroom(followee)
-    @chatroom = Chatroom.new(name: "Chat #{followee.nickname} and #{current_user.nickname}")
-    @chatroom.user_id = current_user.id
-    @chatroom.first_user_id = current_user.id
-    @chatroom.second_user_id = followee.id
-    @chatroom.save
+  def create_chatroom(follower)
+    if Chatroom.where(['first_user_id = :first and second_user_id = :second', {first: follower, second: current_user }]).empty?
+      @chatroom = Chatroom.new(name: "Chat with #{follower.nickname} and #{current_user.nickname}")
+      @chatroom.first_user = current_user
+      @chatroom.second_user = follower
+
+      @chatroom.save
+    end
   end
 end
