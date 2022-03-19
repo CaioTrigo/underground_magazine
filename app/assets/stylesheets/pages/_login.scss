@@ -1,13 +1,23 @@
+body {
+  background-color: $dark-gray;
+  //background-image: linear-gradient(147deg, $dark-gray 0%, #000000 64%);
+}
+
 .login {
     height: 100vh;
 }
 
 .login-box {
     background-color: $light-gray;
-    width: 80%;
+    width: 40%;
     margin: 0 auto;
-    border-radius: 25px;
+    border-radius: 8px;
     padding: 40px;
+    color: $text-gray;
+    box-shadow: -1px 7px 15px 0px rgba(0,0,0,0.56);
+
+    img{
+    }
 }
 
 #app-name {
@@ -16,6 +26,21 @@
     font-weight: bold;
     font-family: Nunito;
 }
+
+.social-login {
+
+  margin-top: 20px;
+  text-align: center;
+
+  a {
+    margin: 0 10px;
+  }
+  a:hover {
+    color: $light-purple;
+  }
+}
+
+
 
 .brand-icons {
     // padding-left: 45%;
