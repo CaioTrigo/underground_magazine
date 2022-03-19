@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :chatrooms, dependent: :destroy
+  has_many :chatrooms, dependent: :destroy, foreign_key: :first_user_id, class_name: 'User'
   has_many :comments, dependent: :destroy
 
 

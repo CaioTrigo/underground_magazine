@@ -1,12 +1,7 @@
-.message_sent {
-
-  text-align: right;
-}
-
-.user {
-  color: black;
-}
-
-
-.message_received {
+.chat-message {
+  background-color: rgba($color: $bg-brown, $alpha: 0.5);
+  max-width: 70%;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
 }

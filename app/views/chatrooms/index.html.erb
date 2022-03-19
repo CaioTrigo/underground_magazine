@@ -1,5 +1,14 @@
-<% @chatrooms.each do |chatroom| %>
-
-  <h4><%= chatroom.name %></h4>
-  <%= link_to "View Conversation", chatroom_path(chatroom.id), class: "btn btn-success"  %>
-<% end %>
+<div class="d-flex chatroom-container" data-controller="chatroom">
+  <div class="chatroom-side p-3 rounded-lg">
+    <% @chatrooms.each do |chatroom| %>
+      <% other_user = chatroom.first_user == current_user ? chatroom.second_user : chatroom.first_user %>
+      <%= link_to chatroom_path(chatroom), class: "chatroom-user", data: { chatroom_target: 'user' } do %>
+        <%= cl_image_tag other_user.photo.key, style: "height:50px; width:50px; border-radius: 50%;" %>
+        <h4 class="flex-grow-1 ms-2"><%= other_user.nickname %></h4>
+      <% end %>
+  <% end %>
+  </div>
+  <div class="container chatroom rounded-lg d-flex justify-content-center align-items-center">
+    <h1 class="chatroom-title">Select a user to chat</h1>
+  </div>
+</div>
