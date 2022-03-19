@@ -1,15 +1,61 @@
 .user-profile-container {
-    margin-top: 2.25rem;
+  margin-top: 2.25rem;
 }
 
 .avatar-profile {
-    width: 100px;
-    height: auto;
-    border-radius: 50%;
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+
 }
 
-.cards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
+.user-avatar {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border-radius: 50%;
+  height: 150px;
+}
+
+.profile-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    color: #111827;
+    font-size: 36px;
+    font-weight: 800;
+    margin: 10px 0;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px 0;
+  }
+
+}
+
+
+.profile-table {
+  font-size: 16px;
+  margin: 0 20px;
+  dt {
+    font-weight: bold;
+    color: #07090f;
+  }
+}
+
+.user-posts {
+  display: flex;
+  gap: 0.8rem;
+  .img-post {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
