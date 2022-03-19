@@ -13,6 +13,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 15px;
+
+  img {
+    margin: 0px;
+    width: 100%;
+  }
 }
 
 .user-avatar {

@@ -1,22 +1,19 @@
-<div class="cards-grid">
-  <div class="container d-flex flex-wrap">
-    <div>
-      <% @users.each do |user| %>
+<div class="container">
+  <div class="cards-grid">
+    <% @users.each do |user| %>
+      <div class="bg-white shadow-lg rounded-lg my-3 p-3">
         <div class="mb-2 mt-2">
           <strong><%= link_to user.nickname, user_path(user.id) %></strong>
         </div>
-        <div class="bg-white shadow-lg rounded-lg my-3 p-3">
-          <% if user.photo.attached? %>
-            <%= cl_image_tag user.photo.key, :width=>300, :height=>300, :gravity=>"face", "radius" => "20", :crop=>"thumb" %>
-          <% else %>
-            <img class="avatar" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-          <% end %>
+        <% if user.photo.attached? %>
+          <%= cl_image_tag user.photo.key, :width=>300, :height=>300, :gravity=>"face", "radius" => "20", :crop=>"thumb" %>
+        <% else %>
+          <img class="avatar" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+        <% end %>
 
-          <%= render "user", user: user %>
+        <%= render "user", user: user %>
 
-        </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
-
 </div>
