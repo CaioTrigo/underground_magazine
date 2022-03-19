@@ -1,50 +1,61 @@
-<div class="login-box mt-5">
-  <div class="mt-3 mb-4"><h2><strong>Editing @<%= @user.nickname %> account</h2></strong></div>
-  
+<div class="form-box my-5">
+  <%= link_to user_path(@user), class: 'arrow-back' do %>
+    <i class="fas fa-angle-left"></i><i class="fas fa-angle-left"></i><i class="fas fa-angle-left"></i>
+  <% end %>
 
+  <h1 class="form-title"><strong>EDIT YOUR ACCOUNT</h1></strong>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
-
-    <div class="form-inputs">
       <%= f.input :full_name,
                       label: "Full Name:",
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "full_name", class: "mt-3 mb-3 input-opaque" }%>
-      
-      <%= f.input :nickname,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "nickname", class: "mt-3 mb-3 input-opaque" }%>
-
+                      input_html: { autocomplete: "full_name", class: "input-opaque" }%>
+      <div class="row">
+        <div class="col-6">
+          <%= f.input :nickname,
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "nickname", class: "input-opaque" }%>
+        </div>
+        <div class="mt-4 col-6">
+          <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'},
+                              label_html: { class: 'upload-photo'}, label: 'Upload a photo' %>
+        </div>
+      </div>
       <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "email", class: "mt-3 mb-3 input-opaque" }%>
+                    input_html: { autocomplete: "email", class: "input-opaque" }%>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <%= f.input :password,
-                  hint: "leave it blank if you don't want to change it",
-                  required: false,
-                  input_html: { autocomplete: "new-password", class: "mt-3 mb-3 input-opaque" } %>
-      <%= f.input :password_confirmation,
-                  required: false,
-                  input_html: { autocomplete: "new-password", class: "mt-3 mb-3 input-opaque"} %>
-      <%= f.input :current_password,
-                  hint: "we need your current password to confirm your changes",
-                  required: true,
-                  input_html: { autocomplete: "current-password", class: "mt-3 mb-3 input-opaque"} %>
-    </div>
+      <div class="row">
+        <div class="col-4">
+          <%= f.input :password,
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { class: "input-opaque" } %>
+        </div>
+        <div class="col-4">
+          <%= f.input :password_confirmation,
+                      required: false,
+                      input_html: { autocomplete: "new-password", class: "input-opaque"} %>
+        </div>
+        <div class="col-4">
+          <%= f.input :current_password,
+                      hint: "we need your current password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-password", class: "input-opaque"} %>
+        </div>
+      </div>
 
-    <div class="form-actions flex d-inline">
-      <%= f.button :submit, "Update", class: "btn btn-success mb-4 mt-3" %>
+    <div class="form-actions row justify-content-center">
+      <%= f.submit "Update", class: "btn button-form col-7 mb-4 mt-3" %>
     </div>
   <% end %>
-  <p>Unhappy? <br><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-4" %></p>
-  
-
-  <%= link_to "Back", user_path(@user.id), class: "btn btn-secondary" %>
+  <hr>
+  <br><%= link_to "cancel my account", registration_path(resource_name), class: "cancel-link", data: { confirm: "Are you sure?" }, method: :delete %>
 </div>

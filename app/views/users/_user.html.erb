@@ -1,20 +1,13 @@
-<div>
-  <p data-user=<%= user.id %>>
-    <%= user.nickname %>
-    <% if current_user.is_following?(user.id) %>
-      <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true, class: "btn btn-danger follow-btn-#{user.id}", style: "color: white;", data: { follow_button_target: "btn" }  %>
-
-      <span>
-        <% chatroom = Chatroom.find_by(first_user: [user, current_user], second_user: [user, current_user]) %>
-        <% if chatroom %>
-          <%= link_to "Chat", chatroom_path(chatroom), class: "btn btn-success" %>
-        <% else %>
-          <%= link_to "Chat", chatrooms_path(recipient_id: user.id), method: :post, class: "btn btn-success" %>
-        <% end %>
-        </span>
-
-    <% else %>
-      <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true, class: "btn btn-warning follow-btn-#{user.id}", data: { follow_button_target: "btn" } %>
-    <% end %>
-  </p>
+<div class="mb-2 mt-2 d-flex justify-content-center btns-followers" data-user=<%= user.id %>>
+  <% if current_user.is_following?(user.id) %>
+    <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true, class: "btn-unfollow btn-f follow-btn-#{user.id}", style: "color: white;", data: { follow_button_target: "btn" }  %>
+      <% chatroom = Chatroom.find_by(first_user: [user, current_user], second_user: [user, current_user]) %>
+      <% if chatroom %>
+        <%= link_to "Chat", chatroom_path(chatroom), class: "btn-chat btn-f" %>
+      <% else %>
+        <%= link_to "Chat", chatrooms_path(recipient_id: user.id), method: :post, class: "btn-chat btn-f" %>
+      <% end %>
+  <% else %>
+    <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true, class: "btn-follow btn-f follow-btn-#{user.id}", data: { follow_button_target: "btn" } %>
+  <% end %>
 </div>

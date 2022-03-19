@@ -39,9 +39,8 @@ module UndergroundMagazine
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-  end
-end
 
-class Application < Rails::Application
-  config.time_zone = 'Eastern Time (US & Canada)'
+    config.time_zone = 'Brasilia'
+    config.active_record.default_timezone = :local
+  end
 end

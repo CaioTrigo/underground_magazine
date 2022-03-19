@@ -1,47 +1,37 @@
-<div class="container login">
-  <h1 class="text-center mt-4" id="app-name">Underground Magazine!</h1>
-  <div class="login-box mt-5">
-    <h2 class="mb-3">Login</h2>
-
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :email,
-                    label: "Email:",
-                    required: false,
-                    autofocus: true,
-                    input_html: { autocomplete: "email", class: "mt-3 mb-3", style: "background: lightgray"} %>
-        <%= f.input :password,
-                    label: "Password:",
-                    required: false,
-                    input_html: { autocomplete: "current-password", class: "mt-3 mb-3", style: "background: lightgray" } %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, "Login", class: "mt-3 btn-secondary d-block", style: "margin: 0 auto; width: 25%" %>
-      </div>
-
-      <div class="d-inline d-flex brand-icons mt-5 space-between">
-        <div class="row text-center">
-        <i class="fa-brands fa-facebook-square"></i>
-          <label style="font-size: 15px;">Login w/ Facebook</label>
-        </div>
-        <div class="row text-center">
-          <i class="fa-brands fa-google"></i>
-          <label style="font-size: 15px;">Login w/ Google</label>
-        </div>
-        <div class="row text-center">
-          <i class="fa-brands fa-twitter"></i>
-          <label style="font-size: 15px;">Login w/ Twitter</label>
-        </div>
-        <div class="row text-center">
-          <i class="fa-brands fa-behance-square"></i>
-          <label style="font-size: 15px;">Login w/ Behance</label>
-        </div>
-      </div>
-    <% end %>
-
-    
+<div class="row landing">
+  <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+      <%= image_tag('login_logo.png', width: '650px', class: 'mb-5') %>
   </div>
-  <div class="text-center mt-3 recover-links"><%= render "devise/shared/links" %></div>
+  <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+    <div class="form-box mt-5">
+      <h1 class="form-title"><strong>LOGIN</strong></h1>
+
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      label: "Email:",
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", style: "background: lightgray"} %>
+          <%= f.input :password,
+                      label: "Password:",
+                      required: false,
+                      input_html: { autocomplete: "current-password", style: "background: lightgray" } %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="form-actions row justify-content-center">
+          <%= f.submit "Login", class: "btn button-form col-7 mb-4 mt-3" %>
+        </div>
+
+        <div class="text-center icons-login">
+          <i class="fa-brands fa-facebook-square mx-2"></i>
+          <i class="fa-brands fa-google mx-2"></i>
+          <i class="fa-brands fa-twitter mx-2"></i>
+          <i class="fa-brands fa-behance-square mx-2"></i>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-center recover-links mt-2 mb-5"><%= render "devise/shared/links" %></div>
+  </div>
 </div>

@@ -1,10 +1,9 @@
 <%#= http://localhost:3000/posts/new %>
 <%# new_post_path %>
-<div class="form-full">
-<div class="card my-5">
-  <div class="card-body">
-    <h1>New Post</h1>
-    <%= render 'form', post: @post %>
-  </div>
-</div>
+<div class="form-box my-5">
+  <%= link_to root_path, class: 'arrow-back' do %>
+    <i class="fas fa-angle-left"></i><i class="fas fa-angle-left"></i><i class="fas fa-angle-left"></i>
+  <% end %>
+  <h1 class="form-title"><strong>NEW POST</strong></h1>
+  <%= render 'form', post: @post %>
 </div>
