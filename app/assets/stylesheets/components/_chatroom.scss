@@ -39,6 +39,9 @@
   }
 }
 
+.chat-msg-input {
+  width: 100%;
+}
 .chatroom-user.active {
   background-color: $bg-brown;
   color: white;
