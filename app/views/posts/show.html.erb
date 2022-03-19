@@ -51,15 +51,15 @@
               </div>
               <div class="mb-2 text-blueGray-600">
                 <div class="d-inline">
-                    <%= link_to tips_path({id: @post.id, value: 1}), class:"btn btn-sm btn-primary px-3 ", remote: true do %>
+                    <%= link_to tips_path({id: @post.id, value: 1, message: "Thank you, your order has been received."}), class:"btn btn-sm btn-primary px-3" do %>
                       <i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i>1,00
                     <% end %>
 
-                    <%= link_to tips_path({id: @post.id, value: 5}), class:"btn btn-sm btn-primary px-3 ", remote: true do %>
+                    <%= link_to tips_path({id: @post.id, value: 5, message: "Thank you, your order has been received."}), class:"btn btn-sm btn-primary px-3" do %>
                       <i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i>5,00
                     <% end %>
 
-                    <%= link_to tips_path({id: @post.id, value: 10}), class:"btn btn-sm btn-primary px-3 ", remote: true do %>
+                    <%= link_to tips_path({id: @post.id, value: 10, message: "Thank you, your order has been received."}), class:"btn btn-sm btn-primary px-3" do %>
                       <i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i>10,00
                     <% end %>
                   
