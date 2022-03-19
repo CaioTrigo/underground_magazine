@@ -6,7 +6,9 @@
   </div>
 
   <%= simple_form_for [chatroom, @message], remote: true, html: { class: "d-flex", autocomplete: 'off', data: { chatroom_subscription_target: "form" } } do |f| %>
-    <%= f.input :content, label: false, placeholder: "Type your message", wrapper_html: {class: "flex-grow-1"}, input_html: {class: "mb-2", style: "background: lightgray"}%>
-    <%= f.submit "Send" %>
+    <div class="d-flex align-center w-100">
+      <%= f.input :content, label: false, placeholder: "Type your message", wrapper_html: {class: "flex-grow-1"}, input_html: {class: "chat-msg-input", style: "background: lightgray"}%>
+      <%= f.submit "Send", class: "px-5 ml-3 rounded" %>
+    </div>
   <% end %>
 </div>

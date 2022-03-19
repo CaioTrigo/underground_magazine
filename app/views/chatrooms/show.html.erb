@@ -1,4 +1,4 @@
-<div class="d-flex chatroom-container" data-controller="chatroom">
+<div class="d-flex chatroom-container mb-5" data-controller="chatroom">
   <div class="chatroom-side p-3 rounded-lg">
     <% @chatrooms.each do |chatroom| %>
       <% other_user = chatroom.first_user == current_user ? chatroom.second_user : chatroom.first_user %>
