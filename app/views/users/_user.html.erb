@@ -1,15 +1,14 @@
 <div class="container">
-  <div class="flex bg-white shadow-lg rounded-lg my-5 p-3" >
-    <% if user.photo.attached? %>
-      <%= cl_image_tag user.photo.key, :width=>300, :height=>300, :gravity=>"face", "radius" => "50", :crop=>"thumb" %>
-    <% else %>
-      <img class="avatar" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-    <% end %>
+    <div>
+      <div class="bg-white shadow-lg rounded-lg my-3 p-3">
+        <% if user.photo.attached? %>
+          <%= cl_image_tag user.photo.key, :width=>300, :height=>300, :gravity=>"face", "radius" => "20", :crop=>"thumb" %>
+        <% else %>
+          <img class="avatar" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+        <% end %>
 
-    <div class="flex bg-white my-5 p-3" >
+        <%= render "user_info", user: user %>
 
-      <%= render "user_info", user: user %>
-
+      </div>
     </div>
-  </div>
 </div>
