@@ -1,17 +1,104 @@
-.form-rounded {
-    border-radius: 25px;
-}
 
-.form-full {
-    height: 90vh;
-}
-
-.button-box {
-    width: 100px;
-}
-
+// posts
 .img-fit {
-    object-fit: contain;
-    background-size: cover;
+  object-fit: contain;
+  background-size: cover;
 }
 
+// forms
+.cancel-link {
+  color: #111827;
+  &:hover {
+    color: #111827;
+    font-weight: bold;
+  }
+}
+
+.arrow-back {
+  font-size: 25px;
+  bottom: 50px;
+  top: 114px;
+  left: 266px;
+  color: rgba(17, 24, 39, 0.8);
+  &:hover {
+    color: #111827;
+    font-weight: bold;
+  }
+}
+
+.form-box {
+  background-color: rgba(244, 244, 244, 0.8);
+  width: 65%;
+  margin: 0 auto;
+  border-radius: 25px;
+  padding: 40px;
+
+}
+
+.form-title {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: rgba(17, 24, 39, 1);
+}
+
+.form-group label {
+  margin-top: 10px;
+  color: rgba(17, 24, 39, 1);
+}
+
+
+.was-validated .form-control:valid, .form-control.is-valid {
+  border-color: #3d705f;
+}
+
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+  border-color: #3D7068;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.upload-photo {
+  border: 1px solid rgba(17, 24, 39, 1);
+  color: rgba(17, 24, 39, 1);
+  width: 100%;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.half-input {
+  width: 50%;
+}
+
+.button-form {
+  border-radius: 5px;
+  background-color: #3d705f !important;
+}
+
+.icons-login i {
+  font-size: 20px;
+  color: #111827;
+  &:hover {
+    color: #b08968;
+  }
+}
+
+.form-check-input {
+  margin-top: 13px;
+  background-color: rgba(244, 244, 244, 0.4);
+}
+
+.text-logo {
+  font-size: 100px;
+  letter-spacing: 0.5rem;
+  color: rgba(244, 244, 244, 0.8);
+}
+
+.landing {
+  height: 80vh;
+}

@@ -29,7 +29,6 @@
   }
 }
 
-
 .container-delete-edit {
   color: rgb(150, 150, 150);
   display: flex;
@@ -76,4 +75,26 @@
     color: blue;
     transition: 0.3s ease;
   }
+}
+
+.btns-followers {
+  gap: 10px;
+}
+
+.btn-f{
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.btn-chat {
+  background-color: #3D705F;
+}
+
+.btn-follow {
+  background-color: #111827;
+}
+
+.btn-unfollow {
+  background-color: #b08968;
 }

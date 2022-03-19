@@ -28,11 +28,11 @@
   </head>
 
   <body>
-  <%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' if current_user %>
     <div class="container margin-top">
       <%= render 'shared/flashes' %>
      <%= yield %>
     </div>
-    <%= render 'shared/footer' %>
+    <%= render 'shared/footer' if current_user %>
   </body>
 </html>

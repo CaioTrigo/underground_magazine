@@ -1,41 +1,51 @@
-<div class="container login">
-  <h1 class="text-center mt-4" id="greetings">Welcome to Underground Magazine!</h1>
-  <div class="login-box mt-5">
-    <h2>Sign up</h2>
+<div class="form-box my-5">
+  <%= link_to root_path, class: 'arrow-back' do %>
+    <i class="fas fa-angle-left"></i><i class="fas fa-angle-left"></i><i class="fas fa-angle-left"></i>
+  <% end %>
+  <h1 class="form-title"><strong>SIGN UP</strong></h1>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-      <div class="form-inputs">
-        <%= f.input :full_name,
-                    label: "Full Name:",
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "full_name", class: "mt-3 mb-3", style: "background: lightgray" }%>
-        <%= f.input :nickname,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "nickname", class: "mt-3 mb-3", style: "background: lightgray" }%>
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email", class: "mt-3 mb-3", style: "background: lightgray" }%>
-        <%= f.input :password,
-                    required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password", class: "mt-3 mb-3", style: "background: lightgray"  } %>
-        <%= f.input :password_confirmation,
-                    required: true,
-                    input_html: { autocomplete: "new-password", class: "mt-3 mb-3", style: "background: lightgray"  } %>
-        <label> Profile Picture:</label>
-        <%= f.input :photo, as: :file, label: false, input_html: {class: "mt-3 mb-3"} %>
-
+    <div class="form-inputs">
+      <%= f.input :full_name,
+                  label: "Full Name:",
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "full_name", style: "background: lightgray" }%>
+      <div class="row">
+        <div class="col-6">
+          <%= f.input :nickname,
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "nickname", class: "input-opaque" }%>
+        </div>
+        <div class="mt-4 col-6">
+          <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'},
+                              label_html: { class: 'upload-photo'}, label: 'Upload a photo' %>
+        </div>
       </div>
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email", class: "", style: "background: lightgray" }%>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up", class: "mt-3 btn-secondary d-block", style: "margin: 0 auto; width: 25%" %>
+      <div class="row">
+        <div class="col-6">
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password", class: "", style: "background: lightgray"  } %>
+        </div>
+        <div class="col-6">
+          <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password", class: "", style: "background: lightgray"  } %>
+        </div>
       </div>
-    <% end %>
-  </div>
-  <div class="text-center mt-3 recover-links"><i class="fa-solid fa-rotate-left" style="color: white"></i><%= render "devise/shared/links" %></div>
+    </div>
+    <div class="form-actions row justify-content-center">
+      <%= f.submit "Sign up", class: "btn button-form col-7 mb-4 mt-3" %>
+    </div>
+  <% end %>
 </div>
