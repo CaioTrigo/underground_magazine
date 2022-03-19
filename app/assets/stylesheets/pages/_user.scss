@@ -6,5 +6,10 @@
     width: 100px;
     height: auto;
     border-radius: 50%;
-    
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
 }
