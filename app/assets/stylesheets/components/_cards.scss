@@ -1,0 +1,47 @@
+.card-post > img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-post {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+
+  .card-post-infos {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  h2 {
+    font-size: 35px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: #111827;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+  .p-published {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+    color: rgb(148, 148, 148);
+  }
+
+}
+
+.card-post-infos .card-post-user {
+  position: absolute;
+  right: 16px;
+  top: -40px;
+  width: 70px;
+}
