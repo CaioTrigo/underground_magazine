@@ -1,3 +1,17 @@
 <div class="cards-grid">
-  <%= render @users %>
+  <% @users.each do |user| %>
+    <div class="bg-white shadow-lg rounded-lg my-3 p-3">
+      <div class="mb-2 mt-2">
+        <strong><%= link_to user.nickname, user_path(user.id) %></strong>
+      </div>
+      <% if user.photo.attached? %>
+        <%= cl_image_tag user.photo.key, :width=>300, :height=>300, :gravity=>"face", "radius" => "20", :crop=>"thumb" %>
+      <% else %>
+        <img class="avatar" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+      <% end %>
+
+      <%= render "user", user: user %>
+
+    </div>
+  <% end %>
 </div>
