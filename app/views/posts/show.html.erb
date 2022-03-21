@@ -37,7 +37,7 @@
               <%= cl_image_tag @post.user.photo.key, class:"avatar-profile shadow-xl rounded-full h-auto align-middle border-none " %>
               <div class="d-flex flex-column ml-5 mr-10">
                 <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                  <%= @post.user.full_name %>
+                  <%= @post.user.nickname %>
                 </h3>
                 <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                   <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
@@ -51,15 +51,15 @@
               </div>
               <div class="mb-2 text-blueGray-600">
                 <div class="d-inline">
-                    <%= link_to tips_path({id: @post.id, value: 1, message: "Thank you, your order has been received."}), class:"btn btn-sm btn-primary px-3" do %>
+                    <%= link_to tips_path({id: @post.id, value: 1, message: "Thank you, your order has been received."}), class:"btn btn-sm btn-primary px-3", id: "tips-1" do %>
                       <i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i>1,00
                     <% end %>
 
-                    <%= link_to tips_path({id: @post.id, value: 5, message: "Thank you, your order has been received."}), class:"btn btn-sm btn-primary px-3" do %>
+                    <%= link_to tips_path({id: @post.id, value: 5, message: "Thank you, your order has been received."}), class:"btn btn-sm btn-primary px-3", id: "tips-5" do %>
                       <i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i>5,00
                     <% end %>
 
-                    <%= link_to tips_path({id: @post.id, value: 10, message: "Thank you, your order has been received."}), class:"btn btn-sm btn-primary px-3" do %>
+                    <%= link_to tips_path({id: @post.id, value: 10, message: "Thank you, your order has been received."}), class:"btn btn-sm btn-primary px-3", id: "tips-10" do %>
                       <i class="fas fa-dollar-sign mr-2 text-lg text-blueGray-400"></i>10,00
                     <% end %>
 
