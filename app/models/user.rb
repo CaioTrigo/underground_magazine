@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   validates :nickname, presence: true, uniqueness: true
+  validates :photo, presence: true
 
   enum role: [:artist, :follower]
 
