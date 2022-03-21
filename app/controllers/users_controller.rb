@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:follow, :unfollow, :show]
 
   def index
-    @users = User.where.not(id: current_user.id)
+    @users = User.where.not(id: current_user.id).order("created_at DESC")
   end
 
   def show
