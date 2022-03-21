@@ -1,0 +1,125 @@
+.btn-new-post {
+  background-color: $bg-brown;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 15px 80px;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: $bg-dark-brown;
+    color: #fff;
+    transition: 0.3s ease;
+  }
+}
+
+.btn-view-post {
+  background-color: #111827;
+  color: #fff;
+  padding: 10px 50px;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: $bg-brown;
+    color: #fff;
+    transition: 0.3s ease;
+  }
+}
+
+.container-delete-edit {
+  color: rgb(150, 150, 150);
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+
+  .btn-delete:hover {
+    color: red;
+    transition: 0.3s ease;
+  }
+
+  .btn-edit:hover {
+    color: blue;
+    transition: 0.3s ease;
+  }
+}
+
+.btns-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-profile-delete {
+  color: rgb(150, 150, 150);
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+
+  &:hover {
+    color: red;
+    transition: 0.3s ease;
+  }
+}
+
+.btn-profile-edit {
+  color: rgb(150, 150, 150);
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+
+  &:hover {
+    color: blue;
+    transition: 0.3s ease;
+  }
+}
+
+.btns-followers {
+  gap: 10px;
+}
+
+.btn-f{
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.btn-chat {
+  background-color: #111827;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    transition: 0.3s ease;
+    background-color: #243353;
+    color:#fff;
+  }
+}
+
+.btn-follow {
+  background-color: #3D705F;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    transition: 0.3s ease;
+    background-color: #233d34;
+    color:#fff;
+  }
+}
+
+.btn-unfollow {
+  background-color: #b08968;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    transition: 0.3s ease;
+    background-color: #614c3b;
+    color:#fff;
+  }
+}

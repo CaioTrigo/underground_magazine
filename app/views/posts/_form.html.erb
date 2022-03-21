@@ -1,17 +1,18 @@
 <div class="container">
   <%= simple_form_for @post do |f| %>
-    <div class="form-group">
-      <div class="container">
-        <img id="your_preview_id" class="mt-2 mb-2 img-fit"></img>
-      </div>
-      <%= f.input :photo, label: "Upload your Art: ", as: :file, class: "mb-4 f", wrapper_html: {id: "formFileMultiple", class:"input-opaque p-3 d-flex flex-column "} %>
-      <%= f.label :description, label: "Description:", class:"mt-4"%>
-      <%= f.text_area :description, class: 'form-control input-opaque mb-4', rows: 5  %>
-      <div class="d-flex flex-column button-box">
-        <%= f.submit "Save", class: 'btn btn-primary' %>
-        <%= link_to 'Back', posts_path, class: 'btn btn-secondary mt-2' %>
-      </div>
+    <div class="container">
+      <img id="your_preview_id" class="mt-2 mb-2 px-5 img-fit"></img>
     </div>
+    <%= f.input :photo, label_html: {class: 'upload-photo'}, label: 'Time to upload your foto',
+                wrapper_html: { id: "formFileMultiple", class:"p-3 d-flex flex-column hidden"}, input_html: { class: 'hidden' } %>
+    <%= f.label :description, label: "Description:", class:"mt-4"%>
+    <%= f.text_area :description, class: 'form-control input-opaque mb-4', rows: 5  %>
+
+    <div class="form-actions row justify-content-center">
+      <%= f.submit "Save", class: "btn button-form col-7 mb-4 mt-3" %>
+    </div>
+
+
   <% end %>
 </div>
 

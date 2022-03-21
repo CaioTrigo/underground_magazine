@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $bg-brown-figma;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5000;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +12,23 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 80px;
+}
+
+.logo-navbar {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+}
+
+.navbar-nav {
+  gap: 25px;
+}
+
+.nav-link {
+  color: #fff;
+
+  &:hover {
+    color: $bg-brown;
+  }
 }

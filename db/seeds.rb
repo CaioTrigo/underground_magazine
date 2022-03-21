@@ -5,7 +5,7 @@ case Rails.env
 
 when 'development'
   PHOTOS = ["https://picsum.photos/seed/picsum/200/300", "https://picsum.photos/200/300?grayscale"]
-  
+
   Post.destroy_all
   puts "♻️ Destroyed all Posts"
   Chatroom.destroy_all
@@ -14,7 +14,7 @@ when 'development'
   puts "♻️ Destroyed all Replys"
   User.destroy_all
   puts "♻️ Destroyed all Users"
-  
+
   admin_img = URI.open("https://i.pravatar.cc/300")
   admin = User.new(
             nickname: "Admin",
