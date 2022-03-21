@@ -3,11 +3,7 @@
     <% @chatrooms.each do |chatroom| %>
       <% other_user = chatroom.first_user == current_user ? chatroom.second_user : chatroom.first_user %>
       <%= link_to chatroom_path(chatroom), class: "chatroom-user", data: { chatroom_target: 'user' } do %>
-      <% if chatroom.first_user.photo.attached? && chatroom.second_user.photo.attached? %>
-        <%= cl_image_tag user.photo.key, :width=>300, :height=>300, :gravity=>"face", "radius" => "20", :crop=>"thumb" %>
-      <% else %>
-        <img class="avatar" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-      <% end %>
+        <%= cl_image_tag other_user.photo.key, style: "height:50px; width:50px; border-radius: 50%;" %>
         <h4 class="flex-grow-1 ms-2"><%= other_user.nickname %></h4>
       <% end %>
   <% end %>
@@ -15,4 +11,4 @@
 
   <%= render 'chatroom', chatroom: @chatroom %>
 </div>
-
+`
