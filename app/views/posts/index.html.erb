@@ -3,7 +3,7 @@
 <%= link_to "+ Add New Post", new_post_path, class: "btn-new-post d-inline-block mb-4" %>
 
 <% @posts.each do |post| %>
-<div class="card-post mb-4">
+<div class="card-post mb-4" id="post-<%= post.id%>">
   <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-post-infos">
     <div class="d-flex flex-column justify-content-between">
@@ -11,7 +11,7 @@
         <% if post.author == current_user %>
           <h2><%= link_to current_user.nickname, profile_path %></h2>
         <% else %>
-          <h2><%= link_to post.author, user_path(post.user) %>
+          <h2><%= link_to post.user.nickname, user_path(post.user) %>
         <% end %>
         <p class="p-published">Published at <%= post.created_at.strftime('%H:%M')%></p>
       </div>
